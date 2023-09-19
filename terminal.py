@@ -50,7 +50,7 @@ class TerminalMaster:
       if len(fds) == 0:
         time.sleep(2)
         continue
-      print "READ",fds
+      print("READ",fds)
       (r,w,x) = select.select(list(fds), [], list(fds), 2)
       if len(r):
         for f in r:
@@ -80,13 +80,13 @@ class TerminalBot (ChannelBot):
       os.environ["COLUMNS"] = "80"
       os.environ["TERM"] = "linux"#"vt102"  
       os.execlp("bash", "bash")
-      print "Failed to start child"
-      raise "Failed to start child"
+      print("Failed to start child")
+      raise ("Failed to start child")
 
     #print "child is...",pid
     self.child_pid = pid
     self.child_fd = fd
-   
+
     with core.TerminalMaster.lock:
       core.TerminalMaster.terminals.add(self)
     log.info("Starting up terminal %s", self)

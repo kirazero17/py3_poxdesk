@@ -27,12 +27,12 @@ from pox.lib.recoco import Timer
 
 log = core.getLogger()
 
+
 class TinyTopo (messenger.ChannelBot):
   def __init__ (self):
     core.listen_to_dependencies(self, components=['MessengerNexus'])
     self.switches = set()
     self.links = set()
-
     self.pending = False
 
   def _all_dependencies_met (self):

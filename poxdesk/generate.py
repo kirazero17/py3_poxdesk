@@ -72,7 +72,7 @@ def stripComments(s):
 def getQxPath():
     path = QOOXDOO_PATH
     # OS env takes precedence
-    if os.environ.has_key("QOOXDOO_PATH"):
+    if "QOOXDOO_PATH" in os.environ:
         path = os.environ["QOOXDOO_PATH"]
 
     # else use QOOXDOO_PATH from config.json
